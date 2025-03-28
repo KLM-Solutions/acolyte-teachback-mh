@@ -1,0 +1,7 @@
+{
+    "functions": {
+      "app/api/logging/route.ts": {
+        "maxDuration": 300
+      }
+    }
+  }
