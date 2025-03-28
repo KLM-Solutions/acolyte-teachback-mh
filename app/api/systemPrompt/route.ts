@@ -10,7 +10,7 @@ const pool = new Pool({
 async function ensureTableExists() {
   try {
     await pool.query(`
-      CREATE TABLE IF NOT EXISTS agent_1 (
+      CREATE TABLE IF NOT EXISTS acolyte-teachback-mh (
         id SERIAL PRIMARY KEY,
         prompt TEXT NOT NULL DEFAULT '',
         heading TEXT NOT NULL DEFAULT '👋 Hi There!',
@@ -23,12 +23,12 @@ async function ensureTableExists() {
     `);
     
     // Check if there's at least one row
-    const rowCount = await pool.query('SELECT COUNT(*) FROM agent_1');
+    const rowCount = await pool.query('SELECT COUNT(*) FROM acolyte-teachback-mh');
     
     // If no rows exist, insert a default row
     if (parseInt(rowCount.rows[0].count) === 0) {
       await pool.query(`
-        INSERT INTO agent_1 (prompt, heading, description, page_title, about_exercise, task_description)
+        INSERT INTO acolyte-teachback-mh (prompt, heading, description, page_title, about_exercise, task_description)
         VALUES (
           'You are a specialized assistant with the following guidelines...',
           '👋 Hi There!',
@@ -51,7 +51,7 @@ export async function GET() {
     await ensureTableExists();
     
     const result = await pool.query(
-      'SELECT prompt, heading, description, page_title as "pageTitle", about_exercise as "aboutExercise", task_description as "taskDescription" FROM agent_1 ORDER BY updated_at DESC LIMIT 1'
+      'SELECT prompt, heading, description, page_title as "pageTitle", about_exercise as "aboutExercise", task_description as "taskDescription" FROM acolyte-teachback-mh ORDER BY updated_at DESC LIMIT 1'
     );
     
     if (result.rows.length === 0) {
@@ -134,9 +134,9 @@ export async function POST(request: Request) {
     
     // Build and execute the query
     const query = `
-      UPDATE agent_1 
+      UPDATE acolyte-teachback-mh 
       SET ${updateFields.join(', ')}
-      WHERE id = (SELECT id FROM agent_1 ORDER BY updated_at DESC LIMIT 1)
+      WHERE id = (SELECT id FROM acolyte-teachback-mh ORDER BY updated_at DESC LIMIT 1)
       RETURNING prompt, heading, description, page_title as "pageTitle", about_exercise as "aboutExercise", task_description as "taskDescription"
     `;
     
