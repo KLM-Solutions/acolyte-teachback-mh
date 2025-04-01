@@ -839,29 +839,31 @@ export default function ChatPage() {
             <img 
               src="/side-text.png" 
               alt="Lockton Logo" 
-              className="h-6 sm:h-10 mr-2 sm:mr-4"
+              className="h-8 sm:h-10 mr-2 sm:mr-4"
             />
-            <h2 className="text-base sm:text-xl text-[#000000] truncate max-w-[150px] sm:max-w-full">{pageTitle}</h2>
+            <h2 className="text-lg sm:text-xl text-[#000000] truncate max-w-[200px] sm:max-w-full">
+              {pageTitle}
+            </h2>
           </div>
-          <div className="flex space-x-1 sm:space-x-4">
+          <div className="flex space-x-2 sm:space-x-4">
             <button 
               onClick={() => setIsScoreRubricOpen(true)}
-              className="bg-[#3CBFAE] text-white p-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
+              className="bg-[#3CBFAE] text-white p-2 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
             >
-              <Users size={16} className="sm:w-5 sm:h-5" />
+              <Users size={18} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Scoring</span>
             </button>
             <button 
               onClick={handleInstructionsClick}
-              className="bg-[#3CBFAE] text-white p-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
+              className="bg-[#3CBFAE] text-white p-2 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
             >
-              <Settings size={16} className="sm:w-5 sm:h-5" />
+              <Settings size={18} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Instructions</span>
             </button>
             <Link 
               href="/"
-              className="bg-[#3CBFAE] text-white p-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105">
-              <Home size={16} className="sm:w-5 sm:h-5" />
+              className="bg-[#3CBFAE] text-white p-2 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105">
+              <Home size={18} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Start Over</span>
             </Link>
           </div>
@@ -869,7 +871,7 @@ export default function ChatPage() {
 
         <div className="flex-1 overflow-auto p-2 sm:p-4 bg-[#F5F5F5]">
           {messages.length === 0 && (
-            <div className="text-center my-2 sm:my-8">
+            <div className="flex flex-col justify-center items-center h-full my-2 sm:my-8">
               <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4 text-[#000000]">{heading}</h2>
               <div className="max-w-2xl mx-auto px-2 sm:px-0">
                 {showButtons && (
@@ -904,7 +906,7 @@ export default function ChatPage() {
                 </video>
               </div>
               <p className="text-slate-600 mb-4 sm:mb-8 text-sm sm:text-base px-2 sm:px-0">
-               <br></br>
+                <br></br>
                 {description}
               </p>
             </div>
