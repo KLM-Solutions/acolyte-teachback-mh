@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     icon: "/Side-text.svg"
   }
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{

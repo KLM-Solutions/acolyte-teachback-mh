@@ -834,34 +834,34 @@ export default function ChatPage() {
       />
 
       <div className="flex-1 flex flex-col w-full">
-        <div className="bg-white p-4 flex justify-between items-center border-b border-slate-200">
+        <div className="bg-white p-2 sm:p-4 flex justify-between items-center border-b border-slate-200">
           <div className="flex items-center">
             <img 
-              src="Side-text.png" 
+              src="/side-text.png" 
               alt="Lockton Logo" 
-              className="h-10 mr-4"
+              className="h-6 sm:h-10 mr-2 sm:mr-4"
             />
-            <h2 className="text-xl text-[#000000]">{pageTitle}</h2>
+            <h2 className="text-base sm:text-xl text-[#000000] truncate max-w-[150px] sm:max-w-full">{pageTitle}</h2>
           </div>
-          <div className="flex space-x-2 sm:space-x-4">
+          <div className="flex space-x-1 sm:space-x-4">
             <button 
               onClick={() => setIsScoreRubricOpen(true)}
-              className="bg-[#3CBFAE] text-white px-2 sm:px-4 py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
+              className="bg-[#3CBFAE] text-white p-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
             >
-              <Users size={20} />
+              <Users size={16} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Scoring</span>
             </button>
             <button 
               onClick={handleInstructionsClick}
-              className="bg-[#3CBFAE] text-white px-2 sm:px-4 py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
+              className="bg-[#3CBFAE] text-white p-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
             >
-              <Settings size={20} />
+              <Settings size={16} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Instructions</span>
             </button>
             <Link 
               href="/"
-              className="bg-[#3CBFAE] text-white px-2 sm:px-4 py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105">
-              <Home size={20} />
+              className="bg-[#3CBFAE] text-white p-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105">
+              <Home size={16} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Start Over</span>
             </Link>
           </div>
@@ -869,26 +869,23 @@ export default function ChatPage() {
 
         <div className="flex-1 overflow-auto p-2 sm:p-4 bg-[#F5F5F5]">
           {messages.length === 0 && (
-            <div className="text-center my-4 sm:my-8">
-              <h2 className="text-xl sm:text-2xl font-bold mb-4 text-[#000000]">{heading}</h2>
+            <div className="text-center my-2 sm:my-8">
+              <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4 text-[#000000]">{heading}</h2>
               <div className="max-w-2xl mx-auto px-2 sm:px-0">
                 {showButtons && (
-                  <div className="flex justify-center space-x-4 mb-8">
+                  <div className="flex justify-center space-x-2 sm:space-x-4 mb-4 sm:mb-8">
                     <button 
                       onClick={handleBeginClick}
-                      className="bg-[#3CBFAE] text-white px-2 sm:px-4 py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
+                      className="bg-[#3CBFAE] text-white px-3 py-2 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
                     >
-                      <FileText size={20} />
-                      <span className="hidden sm:inline">Begin</span>
+                      <FileText size={16} className="sm:w-5 sm:h-5" />
+                      <span className="text-sm sm:text-base">Begin</span>
                     </button>
                     
-                    <button onClick={toggleMute} className="flex items-center bg-[#3CBFAE] text-white px-2 sm:px-4 py-2 rounded-md hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105">
-                      <span className="block sm:hidden">
-                        {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
-                      </span>
-                      <span className="hidden sm:flex items-center">
-                        {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
-                        <span className="ml-2">{isMuted ? 'Play Intro' : 'Mute'}</span>
+                    <button onClick={toggleMute} className="flex items-center bg-[#3CBFAE] text-white px-3 py-2 sm:px-4 sm:py-2 rounded-md hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105">
+                      <span className="flex items-center">
+                        {isMuted ? <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" /> : <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />}
+                        <span className="ml-1 sm:ml-2 text-sm sm:text-base">{isMuted ? 'Play' : 'Mute'}</span>
                       </span>
                     </button>
                   </div>
@@ -897,7 +894,7 @@ export default function ChatPage() {
               <div className="flex justify-center mb-4">
                 <video 
                   ref={videoRef} 
-                  className="w-1/2 h-auto max-w-1/2 max-h-[90vh] object-cover"
+                  className="w-full sm:w-1/2 h-auto max-w-full sm:max-w-1/2 max-h-[50vh] sm:max-h-[90vh] object-cover"
                   muted={isMuted}
                   controls={false} 
                   onEnded={() => setIsIntroVideoOpen(false)}
@@ -906,33 +903,33 @@ export default function ChatPage() {
                   <p>Your browser does not support the video tag. Please use a different browser or update your current one.</p>
                 </video>
               </div>
-              <p className="text-slate-600 mb-8">
+              <p className="text-slate-600 mb-4 sm:mb-8 text-sm sm:text-base px-2 sm:px-0">
                <br></br>
                 {description}
               </p>
             </div>
           )}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {messages.map((m, index) => (
               <React.Fragment key={m.id}>
                 <div className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {m.role === 'assistant' && (
-                    <div className="mr-2 flex items-start pt-2">
+                    <div className="mr-1 sm:mr-2 flex items-start pt-2">
                       <img 
                         src="/A2.png" 
                         alt="AI Assistant"
-                        className="w-10 h-10 rounded-full"
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
                       />
                     </div>
                   )}
                   <div
-                    className={`max-w-[85%] sm:max-w-[75%] p-3 sm:p-4 rounded-lg shadow-sm ${
+                    className={`max-w-[85%] sm:max-w-[75%] p-2 sm:p-4 rounded-lg shadow-sm ${
                       m.role === 'user'
                         ? 'bg-white text-gray-900 border border-slate-200'
                         : 'bg-white border border-slate-200'
                     }`}
                   >
-                    <div className={`text-sm sm:text-base prose max-w-none ${
+                    <div className={`text-xs sm:text-base prose max-w-none ${
                       m.role === 'user' ? 'prose-slate' : 'prose-slate'
                     }`}>
                       <ReactMarkdown>{m.content}</ReactMarkdown>
@@ -957,12 +954,12 @@ export default function ChatPage() {
             ))}
             
             {instructionsShown && messages.length > 0 && messages[messages.length - 1].role === 'assistant' && (
-              <div className="flex justify-start ml-10">
+              <div className="flex justify-start ml-4 sm:ml-10">
                 <button 
                   onClick={handlePostInstructionsBegin}
-                  className="bg-[#3CBFAE] text-white px-4 py-2 rounded-md flex items-center space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105"
+                  className="bg-[#3CBFAE] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#35a99a] transition-colors duration-300 transform hover:scale-105 text-sm sm:text-base"
                 >
-                  <FileText size={20} />
+                  <FileText size={16} className="sm:w-5 sm:h-5" />
                   <span>Begin</span>
                 </button>
               </div>
@@ -970,14 +967,14 @@ export default function ChatPage() {
             
             {isLoading && (
               <div className="flex justify-start">
-                <div className="mr-2 flex items-start pt-2">
+                <div className="mr-1 sm:mr-2 flex items-start pt-2">
                   <img 
                     src="/A2.png" 
                     alt="AI Assistant"
-                    className="w-10 h-10 rounded-full"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
                   />
                 </div>
-                <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
+                <div className="bg-white border border-slate-200 p-3 sm:p-4 rounded-lg shadow-sm">
                   <LoadingSpinner />
                 </div>
               </div>
@@ -989,7 +986,7 @@ export default function ChatPage() {
         {showInputArea && (
           <div className="p-2 sm:p-4 border-t border-slate-200 bg-white">
             <form ref={formRef} onSubmit={enhancedSubmit} className="space-y-2">
-              <div className="flex space-x-2 sm:space-x-4">
+              <div className="flex space-x-1 sm:space-x-4">
                 <textarea
                   value={input}
                   onChange={customHandleInputChange}
@@ -1003,11 +1000,11 @@ export default function ChatPage() {
                   }}
                   rows={1}
                   placeholder="Type your message here..."
-                  className="flex-1 p-2 sm:p-3 text-sm sm:text-base border border-slate-200 rounded-md focus:outline-none focus:border-[#1AAFEE] focus:ring-1 focus:ring-[#1AAFEE] bg-white text-slate-900 resize-none overflow-y-auto min-h-[40px] max-h-[160px]"
+                  className="flex-1 p-2 sm:p-3 text-xs sm:text-base border border-slate-200 rounded-md focus:outline-none focus:border-[#3CBFAE] focus:ring-1 focus:ring-[#3CBFAE] bg-white text-slate-900 resize-none overflow-y-auto min-h-[36px] sm:min-h-[40px] max-h-[120px] sm:max-h-[160px]"
                   style={{
                     height: 'auto',
-                    minHeight: '40px',
-                    maxHeight: '160px'
+                    minHeight: '36px',
+                    maxHeight: '120px'
                   }}
                 />
                 <VoiceRecorder
@@ -1020,7 +1017,7 @@ export default function ChatPage() {
                 <button
                   type="submit"
                   disabled={isLoading || (!input.trim() && !isQuestionSelected)}
-                  className={`bg-[#D94B87] text-white px-3 sm:px-4 py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#C43A76] transition-colors duration-300 transform hover:scale-105 ${
+                  className={`bg-[#D94B87] text-white px-2 sm:px-4 py-2 rounded-md flex items-center space-x-1 sm:space-x-2 hover:bg-[#C43A76] transition-colors duration-300 transform hover:scale-105 ${
                     (!input.trim() && !isQuestionSelected) ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                 >
@@ -1028,8 +1025,8 @@ export default function ChatPage() {
                     <LoadingSpinner />
                   ) : (
                     <>
-                      <Send size={20} />
-                      <span className="hidden sm:inline">Send</span>
+                      <Send size={16} className="sm:w-5 sm:h-5" />
+                      <span className="hidden sm:inline text-sm sm:text-base">Send</span>
                     </>
                   )}
                 </button>
@@ -1038,19 +1035,19 @@ export default function ChatPage() {
           </div>
         )}
 
-        <div className="bg-white p-2 border-t border-slate-200">
-          <div className="text-xs text-gray-500 text-center">
+        <div className="bg-white p-1 sm:p-2 border-t border-slate-200">
+          <div className="text-[10px] sm:text-xs text-gray-500 text-center">
             <div>Powered by Acolyte Health</div>
           </div>
         </div>
       </div>
 
       {error && (
-        <div className="fixed bottom-20 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+        <div className="fixed bottom-16 sm:bottom-20 right-2 sm:right-4 bg-red-100 border border-red-400 text-red-700 px-2 sm:px-4 py-2 sm:py-3 rounded text-xs sm:text-sm max-w-[90%] sm:max-w-md">
           <span className="block sm:inline">{error}</span>
           <button
             onClick={() => setError(null)}
-            className="absolute top-0 bottom-0 right-0 px-4"
+            className="absolute top-0 bottom-0 right-0 px-2 sm:px-4"
           >
             <span className="text-red-500">&times;</span>
           </button>
