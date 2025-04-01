@@ -837,7 +837,7 @@ export default function ChatPage() {
         <div className="bg-white p-2 sm:p-4 flex justify-between items-center border-b border-slate-200">
           <div className="flex items-center">
             <img 
-              src="/side-text.png" 
+              src="./Side-text.png" 
               alt="Lockton Logo" 
               className="h-8 sm:h-10 mr-2 sm:mr-4"
             />
