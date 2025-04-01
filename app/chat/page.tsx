@@ -898,6 +898,8 @@ export default function ChatPage() {
                   ref={videoRef} 
                   className="w-full sm:w-1/2 h-auto max-w-full sm:max-w-1/2 max-h-[50vh] sm:max-h-[90vh] object-cover"
                   muted={isMuted}
+                  playsInline
+                  webkit-playsinline="true"
                   controls={false} 
                   onEnded={() => setIsIntroVideoOpen(false)}
                 >
