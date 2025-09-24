@@ -105,7 +105,7 @@ function getGreetingResponse(): string {
   return greetings[Math.floor(Math.random() * greetings.length)];
 }
 
-export const maxDuration = 30;
+export const maxDuration = 300;
 
 function isValidPersona(persona: any): persona is Persona {
   return ['general', 'roleplay'].includes(persona);
